@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.player1CharTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.player1CharButtonO = new System.Windows.Forms.Button();
+            this.player1CharButtonX = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.player1TextBox = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.player2CharTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.player2CharButtonO = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.player2CharButtonX = new System.Windows.Forms.Button();
             this.player2TextBox = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.startButton = new System.Windows.Forms.Button();
@@ -55,15 +57,17 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.player1CharTextBox);
+            this.splitContainer1.Panel1.Controls.Add(this.player1CharButtonO);
+            this.splitContainer1.Panel1.Controls.Add(this.player1CharButtonX);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.player1TextBox);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.player2CharTextBox);
+            this.splitContainer1.Panel2.Controls.Add(this.player2CharButtonO);
             this.splitContainer1.Panel2.Controls.Add(this.label4);
+            this.splitContainer1.Panel2.Controls.Add(this.player2CharButtonX);
             this.splitContainer1.Panel2.Controls.Add(this.player2TextBox);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Size = new System.Drawing.Size(503, 211);
@@ -71,21 +75,32 @@
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
-            // player1CharTextBox
+            // player1CharButtonO
             // 
-            this.player1CharTextBox.BeepOnError = true;
-            this.player1CharTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.player1CharTextBox.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.player1CharTextBox.Location = new System.Drawing.Point(86, 170);
-            this.player1CharTextBox.Mask = "L";
-            this.player1CharTextBox.Name = "player1CharTextBox";
-            this.player1CharTextBox.RejectInputOnFirstFailure = true;
-            this.player1CharTextBox.Size = new System.Drawing.Size(67, 34);
-            this.player1CharTextBox.SkipLiterals = false;
-            this.player1CharTextBox.TabIndex = 3;
-            this.player1CharTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.player1CharTextBox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.player1CharTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.player1CharTextBox_Validating);
+            this.player1CharButtonO.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.player1CharButtonO.AutoSize = true;
+            this.player1CharButtonO.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.player1CharButtonO.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.player1CharButtonO.Location = new System.Drawing.Point(139, 157);
+            this.player1CharButtonO.Name = "player1CharButtonO";
+            this.player1CharButtonO.Size = new System.Drawing.Size(61, 47);
+            this.player1CharButtonO.TabIndex = 4;
+            this.player1CharButtonO.Text = "О";
+            this.player1CharButtonO.UseVisualStyleBackColor = true;
+            this.player1CharButtonO.Click += new System.EventHandler(this.player1CharButtonO_Click);
+            // 
+            // player1CharButtonX
+            // 
+            this.player1CharButtonX.AutoSize = true;
+            this.player1CharButtonX.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.player1CharButtonX.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.player1CharButtonX.Location = new System.Drawing.Point(38, 157);
+            this.player1CharButtonX.Name = "player1CharButtonX";
+            this.player1CharButtonX.Size = new System.Drawing.Size(61, 47);
+            this.player1CharButtonX.TabIndex = 3;
+            this.player1CharButtonX.Text = "Х";
+            this.player1CharButtonX.UseVisualStyleBackColor = true;
+            this.player1CharButtonX.Click += new System.EventHandler(this.player1CharButtonX_Click);
             // 
             // label3
             // 
@@ -103,9 +118,8 @@
             this.player1TextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.player1TextBox.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
             this.player1TextBox.Location = new System.Drawing.Point(3, 61);
-            this.player1TextBox.Mask = "LLLLLLLL";
+            this.player1TextBox.Mask = "LLLLLLLLLLLL";
             this.player1TextBox.Name = "player1TextBox";
-            this.player1TextBox.PromptChar = ' ';
             this.player1TextBox.RejectInputOnFirstFailure = true;
             this.player1TextBox.Size = new System.Drawing.Size(240, 34);
             this.player1TextBox.SkipLiterals = false;
@@ -123,21 +137,19 @@
             this.label1.Text = "Игрок 1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // player2CharTextBox
+            // player2CharButtonO
             // 
-            this.player2CharTextBox.BeepOnError = true;
-            this.player2CharTextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.player2CharTextBox.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite;
-            this.player2CharTextBox.Location = new System.Drawing.Point(90, 170);
-            this.player2CharTextBox.Mask = "L";
-            this.player2CharTextBox.Name = "player2CharTextBox";
-            this.player2CharTextBox.RejectInputOnFirstFailure = true;
-            this.player2CharTextBox.Size = new System.Drawing.Size(67, 34);
-            this.player2CharTextBox.SkipLiterals = false;
-            this.player2CharTextBox.TabIndex = 4;
-            this.player2CharTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.player2CharTextBox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.player2CharTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.player2CharTextBox_Validating);
+            this.player2CharButtonO.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.player2CharButtonO.AutoSize = true;
+            this.player2CharButtonO.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.player2CharButtonO.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.player2CharButtonO.Location = new System.Drawing.Point(137, 157);
+            this.player2CharButtonO.Name = "player2CharButtonO";
+            this.player2CharButtonO.Size = new System.Drawing.Size(61, 47);
+            this.player2CharButtonO.TabIndex = 6;
+            this.player2CharButtonO.Text = "О";
+            this.player2CharButtonO.UseVisualStyleBackColor = true;
+            this.player2CharButtonO.Click += new System.EventHandler(this.player2CharButtonO_Click);
             // 
             // label4
             // 
@@ -149,14 +161,26 @@
             this.label4.Text = "Игровой символ";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // player2CharButtonX
+            // 
+            this.player2CharButtonX.AutoSize = true;
+            this.player2CharButtonX.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.player2CharButtonX.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.player2CharButtonX.Location = new System.Drawing.Point(40, 157);
+            this.player2CharButtonX.Name = "player2CharButtonX";
+            this.player2CharButtonX.Size = new System.Drawing.Size(61, 47);
+            this.player2CharButtonX.TabIndex = 5;
+            this.player2CharButtonX.Text = "Х";
+            this.player2CharButtonX.UseVisualStyleBackColor = true;
+            this.player2CharButtonX.Click += new System.EventHandler(this.player2CharButtonX_Click);
+            // 
             // player2TextBox
             // 
             this.player2TextBox.BeepOnError = true;
             this.player2TextBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.player2TextBox.Location = new System.Drawing.Point(3, 61);
-            this.player2TextBox.Mask = "LLLLLLLL";
+            this.player2TextBox.Mask = "LLLLLLLLLLLL";
             this.player2TextBox.Name = "player2TextBox";
-            this.player2TextBox.PromptChar = ' ';
             this.player2TextBox.Size = new System.Drawing.Size(240, 34);
             this.player2TextBox.TabIndex = 2;
             this.player2TextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -194,6 +218,8 @@
             this.ClientSize = new System.Drawing.Size(503, 275);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.splitContainer1);
+            this.MaximumSize = new System.Drawing.Size(521, 322);
+            this.MinimumSize = new System.Drawing.Size(521, 322);
             this.Name = "PlayersAutorizationForm";
             this.Text = "Авторизация";
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -214,9 +240,11 @@
         private Label label2;
         private MaskedTextBox player1TextBox;
         private MaskedTextBox player2TextBox;
-        private MaskedTextBox player1CharTextBox;
         private Label label3;
-        private MaskedTextBox player2CharTextBox;
         private Label label4;
+        private Button player1CharButtonO;
+        private Button player1CharButtonX;
+        private Button player2CharButtonO;
+        private Button player2CharButtonX;
     }
 }

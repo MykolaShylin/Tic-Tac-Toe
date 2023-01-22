@@ -236,7 +236,6 @@
             this.playerCharLabel1.Name = "playerCharLabel1";
             this.playerCharLabel1.Size = new System.Drawing.Size(96, 92);
             this.playerCharLabel1.TabIndex = 13;
-            this.playerCharLabel1.Text = "Х";
             this.playerCharLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.playerCharLabel1.UseCompatibleTextRendering = true;
             // 
@@ -251,7 +250,6 @@
             this.playerCharLabel2.Name = "playerCharLabel2";
             this.playerCharLabel2.Size = new System.Drawing.Size(99, 92);
             this.playerCharLabel2.TabIndex = 14;
-            this.playerCharLabel2.Text = "О";
             this.playerCharLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.playerCharLabel2.UseCompatibleTextRendering = true;
             // 

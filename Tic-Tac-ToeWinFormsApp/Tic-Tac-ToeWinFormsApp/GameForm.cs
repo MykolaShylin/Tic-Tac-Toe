@@ -13,6 +13,7 @@ namespace Tic_Tac_ToeWinFormsApp
         public GameForm(Player player1, Player player2)
         {
             InitializeComponent();
+            MessageBox.Show("Символ игрока, который ходит, подсвечивается зеленым! Для выбора места хода просто нажимайте мышкой по квадрату!", "Правила", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.player1 = player1;
             this.player2 = player2;
             nameLabel1.Text = player1.Name;

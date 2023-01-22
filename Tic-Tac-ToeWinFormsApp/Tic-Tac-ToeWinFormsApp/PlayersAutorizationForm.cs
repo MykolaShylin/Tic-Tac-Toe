@@ -14,6 +14,10 @@ namespace Tic_Tac_ToeWinFormsApp
     {
         private Player player1;
         private Player player2;
+        private bool _player1Ready = false;
+        private bool _player2Ready = false;
+        private string player1Char;
+        private string player2Char;
         public PlayersAutorizationForm()
         {
             InitializeComponent();
@@ -22,10 +26,10 @@ namespace Tic_Tac_ToeWinFormsApp
         private void startButton_Click(object sender, EventArgs e)
         {
             Hide();
-            if(player1TextBox.Text != string.Empty && player2TextBox.Text != string.Empty && player1CharTextBox.Text != string.Empty && player2CharTextBox.Text != string.Empty)
+            if(player1TextBox.Text != string.Empty && player2TextBox.Text != string.Empty && _player1Ready && _player2Ready)
             {
-                player1 = new Player(player1TextBox.Text, player1CharTextBox.Text.ToUpper());
-                player2 = new Player(player2TextBox.Text, player2CharTextBox.Text.ToUpper());
+                player1 = new Player(player1TextBox.Text, player1Char);
+                player2 = new Player(player2TextBox.Text, player2Char);
                 var newGame = new GameForm(player1, player2);
                 newGame.Show();
                 
@@ -35,38 +39,53 @@ namespace Tic_Tac_ToeWinFormsApp
                 MessageBox.Show("Не все строки авториизации заполнены!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        private void player1CharTextBox_Validating(object sender, CancelEventArgs e)
+
+        private void player1CharButtonX_Click(object sender, EventArgs e)
         {
-            if(player1CharTextBox.Text.ToUpper() == "Х")
-            {
-                player2CharTextBox.Text = "О";
-            }
-            else if (player1CharTextBox.Text.ToUpper() == "О")
-            {
-                player2CharTextBox.Text = "Х";
-            }
-            else
-            {
-                MessageBox.Show("Недопустимый символ, выбирете Х либо О!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                player1CharTextBox.Clear();
-            }
+            player1CharButtonO.BackColor = Color.Transparent;
+            player2CharButtonX.BackColor = Color.Transparent;
+            player1CharButtonX.BackColor = Color.PaleGreen;
+            player2CharButtonO.BackColor = Color.PaleGreen;
+            _player1Ready = true;
+            _player2Ready = true;
+            player1Char = player1CharButtonX.Text;
+            player2Char = player2CharButtonO.Text;
         }
 
-        private void player2CharTextBox_Validating(object sender, CancelEventArgs e)
+        private void player1CharButtonO_Click(object sender, EventArgs e)
         {
-            if (player2CharTextBox.Text.ToUpper() == "Х")
-            {
-                player1CharTextBox.Text = "О";
-            }
-            else if (player2CharTextBox.Text.ToUpper() == "О")
-            {
-                player1CharTextBox.Text = "Х";
-            }
-            else
-            {
-                MessageBox.Show("Недопустимый символ, выбирете Х либо О!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                player2CharTextBox.Clear();
-            }
+            player1CharButtonO.BackColor = Color.PaleGreen;
+            player2CharButtonX.BackColor = Color.PaleGreen;
+            player1CharButtonX.BackColor = Color.Transparent;
+            player2CharButtonO.BackColor = Color.Transparent;
+            _player1Ready = true;
+            _player2Ready = true;
+            player1Char = player1CharButtonO.Text;
+            player2Char = player2CharButtonX.Text;
+        }
+
+        private void player2CharButtonX_Click(object sender, EventArgs e)
+        {
+            player1CharButtonO.BackColor = Color.PaleGreen;
+            player2CharButtonX.BackColor = Color.PaleGreen;
+            player1CharButtonX.BackColor = Color.Transparent;
+            player2CharButtonO.BackColor = Color.Transparent;
+            _player1Ready = true;
+            _player2Ready = true;
+            player1Char = player1CharButtonO.Text;
+            player2Char = player2CharButtonX.Text;
+        }
+
+        private void player2CharButtonO_Click(object sender, EventArgs e)
+        {
+            player1CharButtonO.BackColor = Color.Transparent;
+            player2CharButtonX.BackColor = Color.Transparent;
+            player1CharButtonX.BackColor = Color.PaleGreen;
+            player2CharButtonO.BackColor = Color.PaleGreen;
+            _player1Ready = true;
+            _player2Ready = true;
+            player1Char = player1CharButtonX.Text;
+            player2Char = player2CharButtonO.Text;
         }
     }
 }
